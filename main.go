@@ -13,6 +13,7 @@ import (
 func main() {
   app := fiber.New()
 
+  fmt.Println("Trying to connect db")
   db.InitDatabase()
 
   app.Get("/test", func (c *fiber.Ctx) error {
@@ -31,5 +32,6 @@ func main() {
     return c.JSON(shows)
   })
 
+  fmt.Println("Listening on port 9990")
   app.Listen(":9990")
 }
