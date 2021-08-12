@@ -32,6 +32,10 @@ func main() {
     return c.JSON(shows)
   })
 
+  app.Get("/hello-world", func (c *fiber.Ctx) error {
+    return c.SendString("Hello World!")
+  })
+
   fmt.Println("Listening on port 9990")
   app.Listen(":9990")
 }
